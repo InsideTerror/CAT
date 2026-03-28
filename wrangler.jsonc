@@ -9,7 +9,7 @@
     "directory": "."
   },
   "compatibility_flags": [
-    "nodejs_compat"
+    "nodejs_compat",
 "global_fetch_strictly_public" 
   ]
 }
