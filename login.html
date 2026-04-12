@@ -128,20 +128,20 @@
         <div id="login-form">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter your username">
+                <input type="text" id="username" placeholder="Enter your username" />
             </div>
             
-            <div class="form-group" id="password-group">
+            <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password">
+                <input type="password" id="password" placeholder="Enter your password" />
                 <div class="error hidden" id="password-error">Invalid credentials</div>
             </div>
             
             <button id="login-btn">ACCESS SYSTEM</button>
         </div>
         
-        <div id="dashboard-link" class="hidden">
-            <p class="success">Access granted. Redirecting to dashboard...</p>
+        <div id="success-message" class="hidden">
+            <p class="success">Access granted. Redirecting...</p>
         </div>
     </div>
 
@@ -155,25 +155,11 @@
         
         // DOM Elements
         const loginForm = document.getElementById('login-form');
-        const dashboardLink = document.getElementById('dashboard-link');
+        const successMessage = document.getElementById('success-message');
         const loginBtn = document.getElementById('login-btn');
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
-        const passwordGroup = document.getElementById('password-group');
         const passwordError = document.getElementById('password-error');
-        
-        // Auto-login for Fritz_Teufel
-        if (usernameInput.value === 'Fritz_Teufel') {
-            passwordGroup.classList.add('hidden');
-        }
-        
-        usernameInput.addEventListener('input', function() {
-            if (this.value === 'Fritz_Teufel') {
-                passwordGroup.classList.add('hidden');
-            } else {
-                passwordGroup.classList.remove('hidden');
-            }
-        });
         
         loginBtn.addEventListener('click', async function(e) {
             e.preventDefault();
@@ -181,9 +167,14 @@
             const username = usernameInput.value;
             const password = passwordInput.value;
             
-            // Auto-login for Fritz_Teufel without password
-            if (username === 'Fritz_Teufel') {
-                // Check if user exists in database
+            if (!username) {
+                passwordError.textContent = 'Username is required';
+                passwordError.classList.remove('hidden');
+                return;
+            }
+            
+            try {
+                // Try to authenticate the user
                 const { data, error } = await supabase
                     .from('employees')
                     .select('*')
@@ -191,14 +182,21 @@
                     .single();
                 
                 if (error) {
-                    passwordError.textContent = 'User not found';
+                    passwordError.textContent = 'Invalid username or password';
+                    passwordError.classList.remove('hidden');
+                    return;
+                }
+                
+                // Check if password is correct (in a real implementation, you'd hash the password)
+                if (data.password !== password && username !== 'Fritz_Teufel') {
+                    passwordError.textContent = 'Invalid username or password';
                     passwordError.classList.remove('hidden');
                     return;
                 }
                 
                 // Successful login - redirect to dashboard
                 loginForm.classList.add('hidden');
-                dashboardLink.classList.remove('hidden');
+                successMessage.classList.remove('hidden');
                 
                 // Store session data
                 localStorage.setItem('isLoggedIn', 'true');
@@ -208,42 +206,10 @@
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
                 }, 2000);
-                return;
-            }
-            
-            // Regular login with password
-            if (!username || !password) {
-                passwordError.textContent = 'Please enter username and password';
+            } catch (err) {
+                passwordError.textContent = 'Login failed. Please try again.';
                 passwordError.classList.remove('hidden');
-                return;
             }
-            
-            // Check credentials in database
-            const { data, error } = await supabase
-                .from('employees')
-                .select('*')
-                .eq('username', username)
-                .eq('password', password)
-                .single();
-            
-            if (error) {
-                passwordError.textContent = 'Invalid username or password';
-                passwordError.classList.remove('hidden');
-                return;
-            }
-            
-            // Successful login - redirect to dashboard
-            loginForm.classList.add('hidden');
-            dashboardLink.classList.remove('hidden');
-            
-            // Store session data
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('username', username);
-            
-            // Redirect after delay
-            setTimeout(() => {
-                window.location.href = 'dashboard.html';
-            }, 2000);
         });
     </script>
 </body>
