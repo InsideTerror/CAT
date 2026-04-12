@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CAT Corporation</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --cat-red: #b91d1d;
+            --cat-dark: #1a1a1a;
+            --cat-darker: #0d0d0d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--cat-darker) 0%, #333 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cat-red);
+            margin-bottom: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            color: var(--cat-red);
+            letter-spacing: 2px;
+        }
+        
+        .user-info {
+            text-align: right;
+        }
+        
+        .user-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .user-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .logout-btn {
+            background: var(--cat-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .application-card {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.3s;
+        }
+        
+        .application-card:hover {
+            border-color: var(--cat-red);
+        }
+        
+        .application-card h3 {
+            color: var(--cat-red);
+            margin-bottom: 1rem;
+        }
+        
+        .application-card p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .application-card .email {
+            color: #66c2ff;
+            font-weight: 600;
+        }
+        
+        .no-applications {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 3rem;
+            color: #777;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>CAT CORPORATION</h1>
+                <p>EMPLOYEE DASHBOARD</p>
+            </div>
+            <div class="user-info">
+                <h2 id="welcome-user">Welcome, <span id="user-name">User</span></h2>
+                <p id="user-role">EMPLOYEE ACCESS</p>
+                <button class="logout-btn" id="logout-btn">SECURE LOGOUT</button>
+            </div>
+        </header>
+        
+        <main>
+            <h2>EMPLOYEE APPLICATIONS</h2>
+            <div id="applications-container">
+                <div class="loading">Loading applications...</div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        
+        // Initialize Supabase
+        const supabaseUrl = 'https://yjxohlqjqkdehbjnaxtf.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqeG9obHFqcWtkZWhiam5heHRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MTQyNjAsImV4cCI6MjA5MTQ5MDI2MH0.FGQoli-0ZtTANsZtKgH8jRyHxf_SauDCqULXmvnDqSQ";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // DOM Elements
+        const userNameElement = document.getElementById('user-name');
+        const userRoleElement = document.getElementById('user-role');
+        const logoutBtn = document.getElementById('logout-btn');
+        const applicationsContainer = document.getElementById('applications-container');
+        
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', async function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+            
+            if (!isLoggedIn) {
+                // Redirect to login if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Display username
+            userNameElement.textContent = username;
+            
+            // Check user role
+            const { data: userData, error: userError } = await supabase
+                .from('employees')
+                .select('role')
+                .eq('username', username)
+                .single();
+                
+            if (!userError && userData) {
+                userRoleElement.textContent = userData.role || 'EMPLOYEE';
+            }
+            
+            // Check if user is Fritz_Teufel for special access
+            if (username === 'Fritz_Teufel') {
+                userRoleElement.textContent = 'CEO / ADMIN';
+                loadAllApplications();
+            } else {
+                applicationsContainer.innerHTML = `
+                    <div class="no-applications">
+                        <h3>ACCESS RESTRICTED</h3>
+                        <p>You do not have permission to view applications</p>
+                    </div>
+                `;
+            }
+        });
+        
+        // Load all applications for Fritz_Teufel
+        async function loadAllApplications() {
+            const { data: applications, error } = await supabase
+                .from('applications')
+                .select('*');
+                
+            if (error) {
+                applicationsContainer.innerHTML = `
+                    <div class="no-applications">
+                        <h3>ERROR LOADING APPLICATIONS</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            if (!applications || applications.length === 0) {
+                applicationsContainer.innerHTML = `
+                    <div class="no-applications">
+                        <h3>NO APPLICATIONS FOUND</h3>
+                        <p>There are currently no job applications</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display applications in a grid
+            let gridHTML = '<div class="applications-grid">';
+            
+            applications.forEach(app => {
+                gridHTML += `
+                    <div class="application-card">
+                        <h3>${app.name}</h3>
+                        <p class="email">${app.email}</p>
+                        <p>Experience: ${app.experience || 'Not provided'}</p>
+                        <p>Applied: ${new Date(app.created_at).toLocaleDateString()}</p>
+                        ${app.resume_url ? `<p>Resume: <a href="${app.resume_url}" target="_blank">Download</a></p>` : ''}
+                    </div>
+                `;
+            });
+            
+            gridHTML += '</div>';
+            applicationsContainer.innerHTML = gridHTML;
+        }
+        
+        // Logout functionality
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

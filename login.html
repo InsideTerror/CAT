@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CAT Corporation</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --cat-red: #b91d1d;
+            --cat-dark: #1a1a1a;
+            --cat-darker: #0d0d0d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--cat-darker) 0%, #333 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--cat-red);
+            border-radius: 8px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 30px rgba(185, 29, 29, 0.3);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            color: var(--cat-red);
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 1rem;
+            letter-spacing: 8px;
+            color: #aaa;
+            margin-top: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #ddd;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(50, 50, 50, 0.5);
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--cat-red);
+        }
+        
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--cat-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #a01515;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .error {
+            color: #ff6b6b;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .success {
+            color: #4caf50;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>CAT CORP</h1>
+            <span>SECURE ACCESS PORTAL</span>
+        </div>
+        
+        <div id="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            
+            <div class="form-group" id="password-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+                <div class="error hidden" id="password-error">Invalid credentials</div>
+            </div>
+            
+            <button id="login-btn">ACCESS SYSTEM</button>
+        </div>
+        
+        <div id="dashboard-link" class="hidden">
+            <p class="success">Access granted. Redirecting to dashboard...</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        
+        // Initialize Supabase
+        const supabaseUrl = 'https://yjxohlqjqkdehbjnaxtf.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqeG9obHFqcWtkZWhiam5heHRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MTQyNjAsImV4cCI6MjA5MTQ5MDI2MH0.FGQoli-0ZtTANsZtKgH8jRyHxf_SauDCqULXmvnDqSQ";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // DOM Elements
+        const loginForm = document.getElementById('login-form');
+        const dashboardLink = document.getElementById('dashboard-link');
+        const loginBtn = document.getElementById('login-btn');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const passwordGroup = document.getElementById('password-group');
+        const passwordError = document.getElementById('password-error');
+        
+        // Auto-login for Fritz_Teufel
+        if (usernameInput.value === 'Fritz_Teufel') {
+            passwordGroup.classList.add('hidden');
+        }
+        
+        usernameInput.addEventListener('input', function() {
+            if (this.value === 'Fritz_Teufel') {
+                passwordGroup.classList.add('hidden');
+            } else {
+                passwordGroup.classList.remove('hidden');
+            }
+        });
+        
+        loginBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            
+            // Auto-login for Fritz_Teufel without password
+            if (username === 'Fritz_Teufel') {
+                // Check if user exists in database
+                const { data, error } = await supabase
+                    .from('employees')
+                    .select('*')
+                    .eq('username', username)
+                    .single();
+                
+                if (error) {
+                    passwordError.textContent = 'User not found';
+                    passwordError.classList.remove('hidden');
+                    return;
+                }
+                
+                // Successful login - redirect to dashboard
+                loginForm.classList.add('hidden');
+                dashboardLink.classList.remove('hidden');
+                
+                // Store session data
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                
+                // Redirect after delay
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+                return;
+            }
+            
+            // Regular login with password
+            if (!username || !password) {
+                passwordError.textContent = 'Please enter username and password';
+                passwordError.classList.remove('hidden');
+                return;
+            }
+            
+            // Check credentials in database
+            const { data, error } = await supabase
+                .from('employees')
+                .select('*')
+                .eq('username', username)
+                .eq('password', password)
+                .single();
+            
+            if (error) {
+                passwordError.textContent = 'Invalid username or password';
+                passwordError.classList.remove('hidden');
+                return;
+            }
+            
+            // Successful login - redirect to dashboard
+            loginForm.classList.add('hidden');
+            dashboardLink.classList.remove('hidden');
+            
+            // Store session data
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', username);
+            
+            // Redirect after delay
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
