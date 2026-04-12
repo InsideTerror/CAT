@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | CAT Corporation</title>
+    <title>Login | CAT Corp</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
@@ -15,7 +15,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border of-box;
         }
         
         body {
@@ -173,6 +173,12 @@
                 return;
             }
             
+            if (!password) {
+                passwordError.textContent = 'Password is required';
+                passwordError.classList.remove('hidden');
+                return;
+            }
+            
             try {
                 // Try to authenticate the user
                 const { data, error } = await supabase
@@ -187,8 +193,8 @@
                     return;
                 }
                 
-                // Check if password is correct (in a real implementation, you'd hash the password)
-                if (data.password !== password && username !== 'Fritz_Teufel') {
+                // Check if password is correct
+                if (data.password !== password) {
                     passwordError.textContent = 'Invalid username or password';
                     passwordError.classList.remove('hidden');
                     return;
