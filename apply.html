@@ -167,6 +167,7 @@
                 
                 if (error) {
                     console.error('Supabase error:', error);
+                    console.error('Supabase Error Details:', JSON.stringify(error, null, 2));
                     throw error;
                 }
                 
@@ -179,6 +180,7 @@
                 console.log('Application submitted:', data);
             } catch (error) {
                 console.error('Error submitting application:', error);
+                console.error('Supabase Error Details:', JSON.stringify(error, null, 2));
                 alert('Error submitting application. Please try again.');
             }
         };
