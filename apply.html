@@ -137,12 +137,12 @@
         };
         
         window.submitApplication = async function() {
-            console.log('Submit application function called');
+            console.log("Submit button triggered");
             
             // Get form data
             const name = document.getElementById('fullName').value;
             const email = document.getElementById('email').value;
-            const experience = document.getElementById('experience').value;
+            const experience = parseInt(document.getElementById('experience').value);
             const resumeUrl = document.getElementById('resume').value;
             
             // Validate required fields
@@ -165,7 +165,12 @@
                     ])
                     .select();
                 
-                if (error) throw error;
+                if (error) {
+                    console.error('Supabase error:', error);
+                    throw error;
+                }
+                
+                console.log('Supabase response:', data);
                 
                 // Show success message
                 document.getElementById('applicationForm').style.display = 'none';
@@ -192,7 +197,7 @@
         };
         
         // Initialize the form when the page loads
-        window.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             window.initForm();
         });
     </script>
