@@ -12,7 +12,12 @@
 
     <nav class="navbar">
         <div class="logo">CAT<span>CORP.</span></div>
-        <ul class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="companies.html">Companies</a></li>
@@ -35,7 +40,7 @@
 
     <section class="welcome-text">
         <h2 class="section-title">Build the Future.</h2>
-        <p class="lead-text">At CAT Corp., we don't just offer jobs; we offer the chance to engineer the world’s infrastructure. Explore our core departments or join one of our specialized subsidiaries.</p>
+        <p class="lead-text">At CAT Corp., we don't just offer jobs; we offer the chance to engineer the world's infrastructure. Explore our core departments or join one of our specialized subsidiaries.</p>
 
         <div class="company-grid">
             <div class="company-card">
@@ -94,6 +99,13 @@
     <footer class="disclaimer" style="text-align: center; padding-bottom: 40px;">
         CAT Corp. is an equal opportunity employer. All positions require a C.O.R.E. background clearance.
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>

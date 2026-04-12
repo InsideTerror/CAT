@@ -12,7 +12,12 @@
 
     <nav class="navbar">
         <div class="logo">CAT<span>CORP.</span></div>
-        <ul class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="companies.html">Companies</a></li>
@@ -79,5 +84,11 @@
         <p>&copy; 2026 CAT Corporation. No Rights Reserved.</p>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>

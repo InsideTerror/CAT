@@ -12,7 +12,12 @@
 
     <nav class="navbar">
         <div class="logo">CAT<span>CORP.</span></div>
-        <ul class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" class="active">About</a></li>
             <li><a href="companies.html">Companies</a></li>
@@ -126,6 +131,13 @@
         "Precision is not just a metric; it is our legacy."
         <span class="author">— CAT Corp. Board of Directors</span>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
