@@ -123,4 +123,78 @@
     </div>
 
     <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        
+        // Initialize Supabase
+        const supabaseUrl = 'https://yjxohlqjqkdehbjnaxtf.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqeG9obHFqcWtkZWhiam5heHRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MTQyNjAsImV4cCI6MjA5MTQ5MDI2MH0.FGQoli-0ZtTANsZtKgH8jRyHxf_SauDCqULXmvnDqSQ";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // Attach functions to window object
+        window.toggleMenu = function() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        };
+        
+        window.submitApplication = async function() {
+            console.log('Submit application function called');
+            
+            // Get form data
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const experience = document.getElementById('experience').value;
+            const resumeUrl = document.getElementById('resume').value;
+            
+            // Validate required fields
+            if (!name || !email) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            try {
+                // Insert application into Supabase
+                const { data, error } = await supabase
+                    .from('applications')
+                    .insert([
+                        {
+                            name: name,
+                            email: email,
+                            experience: experience,
+                            resume_url: resumeUrl || null
+                        }
+                    ])
+                    .select();
+                
+                if (error) throw error;
+                
+                // Show success message
+                document.getElementById('applicationForm').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+                console.log('Application submitted:', data);
+            } catch (error) {
+                console.error('Error submitting application:', error);
+                alert('Error submitting application. Please try again.');
+            }
+        };
+        
+        window.initForm = function() {
+            // 1. Generate Random ID
+            const randomID = "CAT-" + Math.floor(1000 + Math.random() * 9000) + "-" + String.fromCharCode(65 + Math.floor(Math.random() * 26));
+            document.getElementById('appID').innerText = randomID;
+
+            // 2. Pre-select Department from URL
+            const params = new URLSearchParams(window.location.search);
+            const dept = params.get('dept');
+            if (dept) {
+                document.getElementById('department').value = dept;
+            }
+        };
+        
+        // Initialize the form when the page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            window.initForm();
+        });
+    </script>
+</body>
+</html>
