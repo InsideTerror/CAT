@@ -1,85 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B-Series Transit | CAT Corp</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B-Series Transit | CAT Corp</title>
+<meta name="description" content="The CAT B-Series: Reliability for the modern commute.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn active" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html" class="active" aria-current="page">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html" class="active">B-Series</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <header class="bus-banner-bg">
-    <div class="banner-content">
-        <span class="series-badge">B-SERIES</span>
-        <h1>MASS TRANSIT</h1>
-        <p>Reliability for the modern commute.</p>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
+  </div>
+</nav>
+
+<header class="hero hero--image" style="--hero-img:url('images/bus-hero.jpg')">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">B-Series &mdash; Transit</div>
+      <h1>Mass Transit</h1>
+      <p class="lede">Reliability for the modern commute.</p>
+    </div>
+  </div>
 </header>
 
-    <section class="truck-showcase">
-        <div class="container">
-            <div class="car-grid">
-                <div class="car-card">
-                    <div class="car-image"><img src="images/b1.png" alt="CAT B1"></div>
-                    <div class="car-info">
-                        <span class="model-code">B1</span>
-                        <h3>The Urbanite</h3>
-                        <p>High-frequency city transit with optimized stop-start efficiency.</p>
-                    </div>
-                </div>
-                <div class="car-card">
-                    <div class="car-image"><img src="images/b2.png" alt="CAT B2"></div>
-                    <div class="car-info">
-                        <span class="model-code">B2</span>
-                        <h3>The Voyager</h3>
-                        <p>Luxury intercity coach designed for long-distance endurance.</p>
-                    </div>
-                </div>
-                <div class="car-card">
-                    <div class="car-image"><img src="images/b3.png" alt="CAT B3"></div>
-                    <div class="car-info">
-                        <span class="model-code">B3</span>
-                        <h3>The Shuttle</h3>
-                        <p>Compact, modular platform for airport and campus logistics.</p>
-                    </div>
-                </div>
-                </div>
-            </div>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">B-Series Lineup</div>
+      <h2>3 models, one standard.</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="model-card">
+        <div class="model-img"><img src="images/b1.jpg" alt="CAT B1 The Urbanite" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">B1</span><span class="model-type">B-Series</span></div>
+        <div class="model-body">
+          <h3>The Urbanite</h3>
+          <p>High-frequency city transit with optimized stop-start efficiency.</p>
         </div>
-    </section>
+      </article>
+      <article class="model-card">
+        <div class="model-img"><img src="images/b2.jpg" alt="CAT B2 The Voyager" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">B2</span><span class="model-type">B-Series</span></div>
+        <div class="model-body">
+          <h3>The Voyager</h3>
+          <p>Luxury intercity coach designed for long-distance endurance.</p>
+        </div>
+      </article>
+      <article class="model-card">
+        <div class="model-img"><img src="images/b3.jpg" alt="CAT B3 The Shuttle" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">B3</span><span class="model-type">B-Series</span></div>
+        <div class="model-body">
+          <h3>The Shuttle</h3>
+          <p>Compact, modular platform for airport and campus logistics.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
+<section class="cta-band section">
+  <div class="wrap center-col">
+    <div class="eyebrow">Explore the Range</div>
+    <h2>Other series</h2>
+    <div class="btn-row">
+      <a href="sedans.html" class="btn btn-ghost">S-Series Sedans</a>
+      <a href="pickups.html" class="btn btn-ghost">P-Series Pickups</a>
+      <a href="trucks.html" class="btn btn-ghost">T-Series Heavy Trucks</a>
+    </div>
+  </div>
+</section>
 
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>

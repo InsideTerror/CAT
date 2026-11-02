@@ -1,92 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-Series Pickups | CAT Corp</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P-Series Pickups | CAT Corp</title>
+<meta name="description" content="The CAT P-Series: Built for the Earth's toughest tasks.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn active" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html" class="active" aria-current="page">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html" class="active">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html">B-Series</a></li>
-                </ul>
-            </li>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero hero--image" style="--hero-img:url('images/pickup-hero.jpg')">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">P-Series &mdash; Pickups</div>
+      <h1>Unyielding Strength</h1>
+      <p class="lede">Built for the Earth's toughest tasks.</p>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">P-Series Lineup</div>
+      <h2>4 models, one standard.</h2>
+    </div>
+    <div class="grid grid-4">
+      <article class="model-card">
+        <div class="model-img"><img src="images/p1.jpg" alt="CAT P1 The Workhorse" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">P1</span><span class="model-type">P-Series</span></div>
+        <div class="model-body">
+          <h3>The Workhorse</h3>
+          <p>Maximum utility for industrial job sites.</p>
+        </div>
+      </article>
+      <article class="model-card">
+        <div class="model-img"><img src="images/p2.jpg" alt="CAT P2 The Explorer" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">P2</span><span class="model-type">P-Series</span></div>
+        <div class="model-body">
+          <h3>The Explorer</h3>
+          <p>Off-road capability meets refined comfort.</p>
+        </div>
+      </article>
+      <article class="model-card">
+        <div class="model-img"><img src="images/p3.jpg" alt="CAT P3 The Titan" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">P3</span><span class="model-type">P-Series</span></div>
+        <div class="model-body">
+          <h3>The Titan</h3>
+          <p>Heavy-duty towing and hauling dominance.</p>
+        </div>
+      </article>
+      <article class="model-card">
+        <div class="model-img"><img src="images/p4.jpg" alt="CAT P4 The Stealth" loading="lazy"></div>
+        <div class="model-head"><span class="model-code">P4</span><span class="model-type">P-Series</span></div>
+        <div class="model-body">
+          <h3>The Stealth</h3>
+          <p>Performance engineering for the modern trail.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band section">
+  <div class="wrap center-col">
+    <div class="eyebrow">Explore the Range</div>
+    <h2>Other series</h2>
+    <div class="btn-row">
+      <a href="sedans.html" class="btn btn-ghost">S-Series Sedans</a>
+      <a href="trucks.html" class="btn btn-ghost">T-Series Heavy Trucks</a>
+      <a href="buses.html" class="btn btn-ghost">B-Series Transit</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
         </ul>
-    </nav>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
 
-    <header class="pickup-banner-bg">
-        <div class="banner-content">
-            <span class="series-badge">P-SERIES</span>
-            <h1>UNYIELDING STRENGTH</h1>
-            <p>Built for the Earth's Toughest Tasks.</p>
-        </div>
-    </header>
-
-    <section class="pickup-showcase">
-        <div class="container">
-            <div class="car-grid">
-                <div class="car-card">
-                    <div class="car-image"><img src="images/p1.png" alt="CAT P1"></div>
-                    <div class="car-info">
-                        <span class="model-code">P1</span>
-                        <h3>The Workhorse</h3>
-                        <p>Maximum utility for industrial job sites.</p>
-                    </div>
-                </div>
-                <div class="car-card">
-                    <div class="car-image"><img src="images/p2.png" alt="CAT P2"></div>
-                    <div class="car-info">
-                        <span class="model-code">P2</span>
-                        <h3>The Explorer</h3>
-                        <p>Off-road capability meets refined comfort.</p>
-                    </div>
-                </div>
-                <div class="car-card">
-                    <div class="car-image"><img src="images/p3.png" alt="CAT P3"></div>
-                    <div class="car-info">
-                        <span class="model-code">P3</span>
-                        <h3>The Titan</h3>
-                        <p>Heavy-duty towing and hauling dominance.</p>
-                    </div>
-                </div>
-                <div class="car-card">
-                    <div class="car-image"><img src="images/p4.png" alt="CAT P4"></div>
-                    <div class="car-info">
-                        <span class="model-code">P4</span>
-                        <h3>The Stealth</h3>
-                        <p>Performance engineering for the modern trail.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
-
+<script src="main.js"></script>
 </body>
 </html>

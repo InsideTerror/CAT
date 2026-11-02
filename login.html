@@ -1,223 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | CAT Corp</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <style>
-        :root {
-            --cat-red: #b91d1d;
-            --cat-dark: #1a1a1a;
-            --cat-darker: #0d0d0d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border of-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--cat-darker) 0%, #333 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .login-container {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid var(--cat-red);
-            border-radius: 8px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 30px rgba(185, 29, 29, 0.3);
-        }
-        
-        .logo {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            color: var(--cat-red);
-            text-transform: uppercase;
-        }
-        
-        .logo span {
-            display: block;
-            font-size: 1rem;
-            letter-spacing: 8px;
-            color: #aaa;
-            margin-top: 0.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #ddd;
-        }
-        
-        input {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(50, 50, 50, 0.5);
-            border: 1px solid #444;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 1rem;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: var(--cat-red);
-        }
-        
-        button {
-            width: 100%;
-            padding: 1rem;
-            background: var(--cat-red);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        button:hover {
-            background: #a01515;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .error {
-            color: #ff6b6b;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .success {
-            color: #4caf50;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Portal | CAT Corp</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="login-container">
-        <div class="logo">
-            <h1>CAT CORP</h1>
-            <span>SECURE ACCESS PORTAL</span>
-        </div>
-        
-        <div id="login-form">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter your username" />
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" />
-                <div class="error hidden" id="password-error">Invalid credentials</div>
-            </div>
-            
-            <button id="login-btn">ACCESS SYSTEM</button>
-        </div>
-        
-        <div id="success-message" class="hidden">
-            <p class="success">Access granted. Redirecting...</p>
-        </div>
-    </div>
+<body class="portal-body">
 
-    <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-        
-        // Initialize Supabase
-        const supabaseUrl = 'https://yjxohlqjqkdehbjnaxtf.supabase.co';
-        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqeG9obHFqcWtkZWhiam5heHRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MTQyNjAsImV4cCI6MjA5MTQ5MDI2MH0.FGQoli-0ZtTANsZtKgH8jRyHxf_SauDCqULXmvnDqSQ";
-        const supabase = createClient(supabaseUrl, supabaseKey);
-        
-        // DOM Elements
-        const loginForm = document.getElementById('login-form');
-        const successMessage = document.getElementById('success-message');
-        const loginBtn = document.getElementById('login-btn');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const passwordError = document.getElementById('password-error');
-        
-        loginBtn.addEventListener('click', async function(e) {
-            e.preventDefault();
-            
-            const username = usernameInput.value;
-            const password = passwordInput.value;
-            
-            if (!username) {
-                passwordError.textContent = 'Username is required';
-                passwordError.classList.remove('hidden');
-                return;
-            }
-            
-            if (!password) {
-                passwordError.textContent = 'Password is required';
-                passwordError.classList.remove('hidden');
-                return;
-            }
-            
-            try {
-                // Try to authenticate the user
-                const { data, error } = await supabase
-                    .from('employees')
-                    .select('*')
-                    .eq('username', username)
-                    .single();
-                
-                if (error) {
-                    passwordError.textContent = 'Invalid username or password';
-                    passwordError.classList.remove('hidden');
-                    return;
-                }
-                
-                // Check if password is correct
-                if (data.password !== password) {
-                    passwordError.textContent = 'Invalid username or password';
-                    passwordError.classList.remove('hidden');
-                    return;
-                }
-                
-                // Successful login - redirect to dashboard
-                loginForm.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-                
-                // Store session data
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('username', username);
-                
-                // Redirect after delay
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 2000);
-            } catch (err) {
-                passwordError.textContent = 'Login failed. Please try again.';
-                passwordError.classList.remove('hidden');
-            }
-        });
-    </script>
+<main class="portal-card">
+  <a href="index.html" class="brand">
+    <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+    <span>
+      <span class="brand-text">CAT <span>CORP.</span></span>
+      <span class="brand-sub">Secure Access Portal</span>
+    </span>
+  </a>
+
+  <div class="form-error" id="login-error" role="alert"></div>
+  <div class="form-success" id="login-success" role="status">Access granted. Redirecting&hellip;</div>
+
+  <form id="login-form">
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username" placeholder="Enter your username" required>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" class="btn btn-block" id="login-btn">Access System</button>
+  </form>
+</main>
+
+<a href="index.html" class="portal-back">&larr; Back to CAT Corp.</a>
+
+<script type="module">
+import { supabase } from './supabase-config.js';
+
+const loginForm = document.getElementById('login-form');
+const loginBtn = document.getElementById('login-btn');
+const errorBox = document.getElementById('login-error');
+const successBox = document.getElementById('login-success');
+
+function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+}
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    if (!username) return showError('Username is required');
+    if (!password) return showError('Password is required');
+
+    loginBtn.disabled = true;
+
+    try {
+        // NOTE: this compares a plain-text password stored in the `employees` table.
+        // See README for why this should move to Supabase Auth.
+        const { data, error } = await supabase
+            .from('employees')
+            .select('password')
+            .eq('username', username)
+            .maybeSingle();
+
+        if (error || !data || data.password !== password) {
+            showError('Invalid username or password');
+            loginBtn.disabled = false;
+            return;
+        }
+
+        loginForm.classList.add('hidden');
+        successBox.classList.add('show');
+
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
+
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+    } catch (err) {
+        console.error('Login failed:', err);
+        showError('Login failed. Please try again.');
+        loginBtn.disabled = false;
+    }
+});
+</script>
 </body>
 </html>

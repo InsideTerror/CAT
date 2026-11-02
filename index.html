@@ -1,94 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAT Corporation | Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAT Corporation | Home</title>
+<meta name="description" content="CAT Corporation is the parent company of C.O.R.E., Ganz Steelworks and Halberd & Hems.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html">B-Series</a></li>
-                </ul>
-            </li>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="hero-mark" src="images/cat-mark.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Parent Company &mdash; Est. 1986</div>
+      <h1>We do not seek recognition. We seek results.</h1>
+      <p class="lede">CAT Corporation is the silent architect behind some of the world's most influential organizations &mdash; orchestrating innovation, control and strategic development across multiple sectors.</p>
+      <div class="btn-row">
+        <a href="companies.html" class="btn">Our Companies</a>
+        <a href="about.html" class="btn btn-ghost">Meet the Leadership</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>1986</b><span>Year Founded</span></div>
+  <div class="stat"><b>3</b><span>Subsidiary Companies</span></div>
+  <div class="stat"><b>4</b><span>Vehicle Series</span></div>
+  <div class="stat"><b>15</b><span>Production Models</span></div>
+</div>
+
+<section class="section section-alt">
+  <div class="wrap grid grid-2 grid-center">
+    <div>
+      <div class="eyebrow">Who We Are</div>
+      <h2>Welcome to CAT Corp.</h2>
+      <p>As the parent company of <strong>GANZ Industries</strong>, <strong>C.O.R.E.</strong> and <strong>Halberd &amp; Hems</strong>, CAT operates from the shadows, orchestrating innovation, control, and strategic development across multiple sectors.</p>
+      <p>While each subsidiary maintains its own identity and public mission, their true directive aligns with CAT's long-term vision: <em>to shape the unseen future of global power, technology, and influence.</em></p>
+      <a href="companies.html" class="btn btn-ghost">See the Subsidiaries</a>
+    </div>
+    <figure class="poster-frame mt-0">
+      <img src="images/legacy-poster.jpg" alt="CAT Corp. legacy poster: Never forget those who stood before you &mdash; CAT Corp. since 1986" loading="lazy">
+      <figcaption>Legacy Poster &mdash; Since 1986</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section quote-band">
+  <div class="wrap">
+    <blockquote>
+      <p>&ldquo;Success is something many people have defined as having money and power. I define it as something that benefits not just the employer, but the employees. This is one of the founding principles of our company!&rdquo;</p>
+      <cite>Fritz Teufel &mdash; Chief Executive Officer</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Products</div>
+      <h2>Four series. One standard.</h2>
+    </div>
+    <div class="grid grid-4">
+      <a href="sedans.html" class="card">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 26v-5l5-1 5-6h12l5 6 5 1v5z"/><circle cx="12" cy="28" r="3"/><circle cx="28" cy="28" r="3"/></svg></div>
+        <h3>S-Series</h3>
+        <p>Toughness and engineering pedigree, brought to the executive sedan.</p>
+        <span class="card-link">View Sedans &rarr;</span>
+      </a>
+      <a href="pickups.html" class="card">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 26v-7h4l4-7h12v7h12v7z"/><path d="M14 13v6h8"/><circle cx="11" cy="28" r="3"/><circle cx="29" cy="28" r="3"/></svg></div>
+        <h3>P-Series</h3>
+        <p>Unyielding strength, built for the Earth's toughest tasks.</p>
+        <span class="card-link">View Pickups &rarr;</span>
+      </a>
+      <a href="trucks.html" class="card">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="10" width="21" height="16"/><path d="M24 15h7l5 6v5H24z"/><circle cx="10" cy="29" r="3"/><circle cx="30" cy="29" r="3"/></svg></div>
+        <h3>T-Series</h3>
+        <p>Heavy haulage. Engineering that moves mountains.</p>
+        <span class="card-link">View Heavy Trucks &rarr;</span>
+      </a>
+      <a href="buses.html" class="card">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="8" width="32" height="19" rx="2"/><path d="M4 16h32M14 8v8M26 8v8"/><circle cx="11" cy="29" r="3"/><circle cx="29" cy="29" r="3"/></svg></div>
+        <h3>B-Series</h3>
+        <p>Mass transit. Reliability for the modern commute.</p>
+        <span class="card-link">View Transit &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">On Film</div>
+      <h2>CAT in motion</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card video-card">
+        <video controls preload="metadata" playsinline>
+          <source src="videos/vid1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-meta"><span class="tag">Film 01</span><h3>Company Introduction</h3></div>
+      </div>
+      <div class="card video-card">
+        <video autoplay muted loop playsinline>
+          <source src="videos/vid2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-meta"><span class="tag">Film 02</span><h3>Product Showcase</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band section">
+  <div class="wrap center-col">
+    <div class="eyebrow">Careers</div>
+    <h2>Build the future with us.</h2>
+    <p>We don't just offer jobs; we offer the chance to engineer the world's infrastructure.</p>
+    <div class="btn-row">
+      <a href="apply.html" class="btn">Apply Now</a>
+      <a href="careers.html" class="btn btn-ghost">View Departments</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
         </ul>
-    </nav>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
 
-    <header class="hero-banner">
-        <div class="hero-box">CAT CORPORATION</div>
-    </header>
-
-    <main class="content-container">
-        <section class="legacy-section">
-            <img src="images/legacy-poster.jpg" alt="CAT Corp Legacy 1966" class="poster">
-        </section>
-
-        <section class="welcome-text">
-            <h2>Welcome to CAT Corp.</h2>
-            <div class="bio-flex">
-                <img src="images/cat-logo-circle.png" alt="CAT Corp Logo" class="side-logo">
-                <div class="text">
-                    <p><strong>CAT Corporation</strong> is the silent architect behind some of the world's most influential organizations. As the parent company of <strong>GANZ Industries</strong>, <strong>C.O.R.E.</strong> and <strong>Halberd & Hems</strong>, CAT operates from the shadows, orchestrating innovation, control, and strategic development across multiple sectors.</p>
-                    <p>While each subsidiary maintains its own identity and public mission, their true directive aligns with CAT's long-term vision: <em>to shape the unseen future of global power, technology, and influence.</em></p>
-                    <p class="motto">We do not seek recognition. <br>We seek results.</p>
-                </div>
-            </div>
-            <p class="disclaimer">WE ARE NOT A REAL COMPANY, NOR DO WE SELL ANY PRODUCTS. THIS IS PURE FICTION. ANY RESEMBLANCE TO REAL LIFE IS PURELY COINCIDENTAL.</p>
-        </section>
-
-        <section class="quote-block">
-            <p>"Success is something many people have defined as having money and power. I define it as something that benefits not just the employer, but the employees. This is one of the founding principles of our company!"</p>
-            <span class="author">- Fritz Teufel, CEO</span>
-        </section>
-
-        <section class="video-grid">
-            <div class="video-container">
-                <video controls poster="vid1.jpg" class="cat-player">
-                    <source src="videos/vid1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="vid-caption">Company Introduction</p>
-            </div>
-            
-            <div class="video-container">
-                <video loop autoplay muted poster="vid2.jpg" class="cat-player">
-                    <source src="videos/vid2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="vid-caption">Product Showcase</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 CAT Corporation. No Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
+<script src="main.js"></script>
 </body>
 </html>

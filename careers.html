@@ -1,111 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers | CAT Corp</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | CAT Corp</title>
+<meta name="description" content="Careers at CAT Corporation and its subsidiaries.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="careers.html" class="active">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html">B-Series</a></li>
-                </ul>
-            </li>
+      </div>
+      <a href="careers.html" class="active" aria-current="page">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <img class="hero-mark" src="images/cat-mark.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="eyebrow">Careers</div>
+    <h1>Build the Future.</h1>
+    <p class="lede">At CAT Corp., we don't just offer jobs; we offer the chance to engineer the world's infrastructure. Explore our core departments or join one of our specialized subsidiaries.</p>
+  </div>
+</header>
+
+<section class="section" id="departments">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Core Departments</div>
+      <h2>Where you'll work</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <span class="tag">Tech &amp; Design</span>
+        <h3>Engineering</h3>
+        <p>From modular chassis design to C.O.R.E. AI integration. Shape the B-Series and T-Series platforms.</p>
+        <a href="apply.html?dept=Engineering" class="btn btn-sm">Apply Now</a>
+      </article>
+      <article class="card">
+        <span class="tag">Compliance</span>
+        <h3>Legal Department</h3>
+        <p>Navigating international transport regulations and intellectual property for C.O.R.E. technologies.</p>
+        <a href="apply.html?dept=Legal" class="btn btn-sm">Apply Now</a>
+      </article>
+      <article class="card">
+        <span class="tag">Growth</span>
+        <h3>Marketing</h3>
+        <p>Defining the global voice of CAT Corp. and managing our prestige brand identity.</p>
+        <a href="apply.html?dept=Marketing" class="btn btn-sm">Apply Now</a>
+      </article>
+      <article class="card">
+        <span class="tag">Finance</span>
+        <h3>Accounting</h3>
+        <p>Precision in fiscal management, global tax strategy, and subsidiary funding.</p>
+        <a href="apply.html?dept=Accounting" class="btn btn-sm">Apply Now</a>
+      </article>
+      <article class="card">
+        <span class="tag">Protection</span>
+        <h3>Security</h3>
+        <p>Ensuring the physical and digital safety of our assets, personnel, and data centers.</p>
+        <a href="apply.html?dept=Security" class="btn btn-sm">Apply Now</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Subsidiary Openings</div>
+      <h2>Active subsidiary roles</h2>
+    </div>
+    <div class="grid grid-2">
+      <article class="card">
+        <span class="tag">C.O.R.E.</span>
+        <h3>C.O.R.E. Logistics</h3>
+        <p>Roles in real-time fleet telematics and predictive maintenance software development.</p>
+        <a href="apply.html?dept=CORE-Logistics" class="btn btn-sm">Apply to C.O.R.E.</a>
+      </article>
+      <article class="card">
+        <span class="tag">Global Service</span>
+        <h3>CAT Global Service</h3>
+        <p>Global technical support, field repair, and client relations management.</p>
+        <a href="apply.html?dept=Global-Service" class="btn btn-sm">Apply to Global Service</a>
+      </article>
+    </div>
+    <div class="stripe mt-lg">
+      <div class="big">EOE</div>
+      <p class="txt">CAT Corp. is an equal opportunity employer. All positions require a C.O.R.E. background clearance.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
         </ul>
-    </nav>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
 
-    <header class="page-header career-bg">
-        <div class="header-box">CAREERS</div>
-    </header>
-
-    <section class="welcome-text">
-        <h2 class="section-title">Build the Future.</h2>
-        <p class="lead-text">At CAT Corp., we don't just offer jobs; we offer the chance to engineer the world's infrastructure. Explore our core departments or join one of our specialized subsidiaries.</p>
-
-        <div class="company-grid">
-            <div class="company-card">
-                <div class="department-tag">Tech & Design</div>
-                <h3>Engineering</h3>
-                <p>From modular chassis design to C.O.R.E. AI integration. Shape the B-Series and T-Series platforms.</p>
-                <a href="apply.html?dept=Engineering" class="btn-sub">Apply Now</a>
-            </div>
-
-            <div class="company-card">
-                <div class="department-tag">Compliance</div>
-                <h3>Legal Department</h3>
-                <p>Navigating international transport regulations and intellectual property for C.O.R.E. technologies.</p>
-                <a href="apply.html?dept=Legal" class="btn-sub">Apply Now</a>
-            </div>
-
-            <div class="company-card">
-                <div class="department-tag">Growth</div>
-                <h3>Marketing</h3>
-                <p>Defining the global voice of CAT Corp. and managing our prestige brand identity.</p>
-                <a href="apply.html?dept=Marketing" class="btn-sub">Apply Now</a>
-            </div>
-
-            <div class="company-card">
-                <div class="department-tag">Finance</div>
-                <h3>Accounting</h3>
-                <p>Precision in fiscal management, global tax strategy, and subsidiary funding.</p>
-                <a href="apply.html?dept=Accounting" class="btn-sub">Apply Now</a>
-            </div>
-
-            <div class="company-card">
-                <div class="department-tag">Protection</div>
-                <h3>Security</h3>
-                <p>Ensuring the physical and digital safety of our assets, personnel, and data centers.</p>
-                <a href="apply.html?dept=Security" class="btn-sub">Apply Now</a>
-            </div>
-        </div>
-
-        <div style="margin-top: 80px; padding: 40px; background: #f0f0f0; border-left: 8px solid var(--cat-red);">
-            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Active Subsidiary Openings</h3>
-            <div class="bio-flex">
-                <div>
-                    <h4 style="color: var(--cat-red);">C.O.R.E. Logistics</h4>
-                    <p style="font-size: 0.9rem;">Roles in real-time fleet telematics and predictive maintenance software development.</p>
-                    <a href="logistics.html" class="status-tag" style="text-decoration: none; border-top: none; color: #b91d1d;">Browse C.O.R.E. Jobs →</a>
-                </div>
-                <div>
-                    <h4 style="color: var(--cat-red);">CAT Global Service</h4>
-                    <p style="font-size: 0.9rem;">Global technical support, field repair, and client relations management.</p>
-                    <a href="service.html" class="status-tag" style="text-decoration: none; border-top: none; color: #b91d1d;">Browse Service Jobs →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="disclaimer" style="text-align: center; padding-bottom: 40px;">
-        CAT Corp. is an equal opportunity employer. All positions require a C.O.R.E. background clearance.
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
-
+<script src="main.js"></script>
 </body>
 </html>

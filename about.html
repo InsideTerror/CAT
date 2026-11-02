@@ -1,153 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | CAT Corp</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | CAT Corp</title>
+<meta name="description" content="Meet the leadership team of CAT Corporation.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="companies.html">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html">B-Series</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <header class="page-header about-bg">
-        <div class="header-box">OUR TEAM</div>
-    </header>
-
-    <section class="welcome-text">
-        <h2 class="section-title">Leadership & Vision</h2>
-        <p class="lead-text">CAT Corp. is driven by a collective of engineers, visionaries, and logistics experts dedicated to redefining global transport. Our leadership ensures that every bolt tightened and every line of code written serves the mission of absolute reliability.</p>
-        
-        <div class="team-grid">
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/ft.jpg" alt="Executive Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Chief Executive Officer</span>
-                    <h3>Fritz Teufel</h3>
-                    <p>Overseeing the strategic direction and overall operations of CAT Corp since 1989</p>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/hg.jpg" alt="Engineer Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Chief Operating Officer</span>
-                    <h3>Charlie Gatto</h3>
-                    <p>Lead architect for the C.O.R.E. systems and the P-Series powertrain solutions and contributor of CAT Technological advancements.</p>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/dd.png" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Head of Internal Affairs</span>
-                    <h3>D. Ducky</h3>
-                    <p>Hiring and managing our talented workforce.</p>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/mw.png" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Chief Security Officer</span>
-                    <h3>Maximillion Worth</h3>
-                    <p>Securing our operations and protecting our assets.</p>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/cs.png" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Chief Marketing Officer</span>
-                    <h3>Crez Shadow</h3>
-                    <p>Creating compelling narratives and driving brand awareness.</p>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/iv.png" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Director of Subsidiary Operations</span>
-                    <h3>Voidr Doe</h3>
-                    <p>Managing our subsidiary operations and ensuring seamless integration across all divisions.</p>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/mh.jpg" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Head of Legal Affairs</span>
-                    <h3>Mr. Horse</h3>
-                    <p>Overseeing legal compliance and managing our legal affairs.</p>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="images/kf.jpg" alt="Logistics Name">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-rank">Rendszerfejlesztő</span>
-                    <h3>Mr.Stephen Goat</h3>
-                    <p>Keeping our informational systems up to date</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <div class="profile-card join-card">
-        <div class="profile-info" style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #1a1a1a; color: white; min-height: 400px;">
-            <span class="profile-rank" style="color: #fff; opacity: 0.6;">Opportunities</span>
-            <h3 style="color: var(--cat-red);">Join CAT Corp.</h3>
-            <p style="color: #bbb; margin-bottom: 20px;">We are always looking for the next generation of engineers and visionaries.</p>
-            <a href="careers.html" class="btn-sub">View Openings</a>
-        </div>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
+  </div>
+</nav>
 
-    <footer class="quote-block">
-        "Precision is not just a metric; it is our legacy."
-        <span class="author">— CAT Corp. Board of Directors</span>
-    </footer>
+<header class="hero hero--image" style="--hero-img:url('images/cat-office.jpg')">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Our Team</div>
+      <h1>Leadership &amp; Vision</h1>
+      <p class="lede">CAT Corp. is driven by a collective of engineers, visionaries and logistics experts dedicated to redefining global transport. Our leadership ensures that every bolt tightened and every line of code written serves the mission of absolute reliability.</p>
+    </div>
+  </div>
+</header>
 
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Executive Board</div>
+      <h2>The people behind CAT</h2>
+    </div>
+    <div class="grid grid-4">
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/ft.jpg" alt="Portrait of Fritz Teufel" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Chief Executive Officer</span>
+          <h3>Fritz Teufel</h3>
+          <p>Overseeing the strategic direction and overall operations of CAT Corp. since 1989.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/hg.jpg" alt="Portrait of Charlie Gatto" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Chief Operating Officer</span>
+          <h3>Charlie Gatto</h3>
+          <p>Lead architect for the C.O.R.E. systems and the P-Series powertrain solutions, and contributor to CAT's technological advancements.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/dd.png" alt="Portrait of D. Ducky" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Head of Internal Affairs</span>
+          <h3>D. Ducky</h3>
+          <p>Hiring and managing our talented workforce.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/mw.png" alt="Portrait of Maximillion Worth" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Chief Security Officer</span>
+          <h3>Maximillion Worth</h3>
+          <p>Securing our operations and protecting our assets.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/cs.png" alt="Portrait of Crez Shadow" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Chief Marketing Officer</span>
+          <h3>Crez Shadow</h3>
+          <p>Creating compelling narratives and driving brand awareness.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/iv.png" alt="Portrait of Voidr Doe" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Director of Subsidiary Operations</span>
+          <h3>Voidr Doe</h3>
+          <p>Managing our subsidiary operations and ensuring seamless integration across all divisions.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/mh.jpg" alt="Portrait of Mr. Horse" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Head of Legal Affairs</span>
+          <h3>Mr. Horse</h3>
+          <p>Overseeing legal compliance and managing our legal affairs.</p>
+        </div>
+      </article>
+      <article class="profile-card">
+        <div class="profile-image"><img src="images/kf.png" alt="Portrait of Mr. Stephen Goat" loading="lazy"></div>
+        <div class="profile-info">
+          <span class="profile-rank">Systems Developer</span>
+          <h3>Mr. Stephen Goat</h3>
+          <p>Keeping our information systems up to date.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
+<section class="section quote-band">
+  <div class="wrap">
+    <blockquote>
+      <p>&ldquo;Precision is not just a metric; it is our legacy.&rdquo;</p>
+      <cite>CAT Corp. Board of Directors</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="cta-band section">
+  <div class="wrap center-col">
+    <div class="eyebrow">Opportunities</div>
+    <h2>Join CAT Corp.</h2>
+    <p>We are always looking for the next generation of engineers and visionaries.</p>
+    <div class="btn-row">
+      <a href="careers.html" class="btn">View Openings</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>

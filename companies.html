@@ -1,84 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subsidiaries | CAT Corporation</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/cat_global_v1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subsidiaries | CAT Corporation</title>
+<meta name="description" content="The subsidiaries of CAT Corporation: C.O.R.E., Ganz Steelworks and Halberd & Hems.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CAT<span>CORP.</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/cat-mark.png" alt="CAT Corp. globe mark">
+      <span>
+        <span class="brand-text">CAT <span>CORP.</span></span>
+        <span class="brand-sub">CAT Corporation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="companies.html" class="active" aria-current="page">Companies</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Products</button>
+        <div class="nav-drop-menu">
+          <a href="sedans.html">S-Series <em>Sedans</em></a>
+          <a href="pickups.html">P-Series <em>Pickups</em></a>
+          <a href="trucks.html">T-Series <em>Heavy Trucks</em></a>
+          <a href="buses.html">B-Series <em>Transit</em></a>
         </div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="companies.html" class="active">Companies</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li class="dropdown">
-                <a href="#">Products ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="sedans.html">S-Series</a></li>
-                    <li><a href="pickups.html">P-Series</a></li>
-                    <li><a href="trucks.html">T-Series</a></li>
-                    <li><a href="buses.html">B-Series</a></li>
-                </ul>
-            </li>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <img class="hero-mark" src="images/cat-mark.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="eyebrow">Subsidiaries</div>
+    <h1>Companies</h1>
+    <p class="lede">CAT manages smaller, but equally important subsidiaries. Each keeps its own identity and public mission.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap grid grid-3">
+    <article class="card company-card">
+      <div class="logo-plate"><img src="images/LOGO2.png" alt="C.O.R.E. logo"></div>
+      <div class="company-body">
+        <span class="tag">Railway</span>
+        <h3>C.O.R.E.</h3>
+        <p>C.O.R.E. is a commuter railway connecting all of Cloudville together.</p>
+        <a href="https://corerail.dpdns.org/" class="btn btn-sm" target="_blank" rel="noopener">Official Website &nearr;</a>
+      </div>
+    </article>
+    <article class="card company-card">
+      <div class="logo-plate"><img src="images/ganz-logo.png" alt="Ganz Steelworks logo"></div>
+      <div class="company-body">
+        <span class="tag">Defence</span>
+        <h3>Ganz Steelworks</h3>
+        <p>Ganz is a military contractor that makes special experimental military devices.</p>
+      </div>
+    </article>
+    <article class="card company-card">
+      <div class="logo-plate"><img src="images/halberd-logo.png" alt="Halberd &amp; Hems logo"></div>
+      <div class="company-body">
+        <span class="tag">Security</span>
+        <h3>Halberd &amp; Hems</h3>
+        <p>Specialized in advanced security systems and surveillance technology.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/cat-mark.png" alt="">
+          <span class="brand-text">CAT <span>CORP.</span></span>
+        </div>
+        <p>Parent company of C.O.R.E., Ganz Steelworks and Halberd &amp; Hems. We do not seek recognition. We seek results.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; Leadership</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="careers.html">Careers</a></li>
         </ul>
-    </nav>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="sedans.html">S-Series Sedans</a></li>
+          <li><a href="pickups.html">P-Series Pickups</a></li>
+          <li><a href="trucks.html">T-Series Trucks</a></li>
+          <li><a href="buses.html">B-Series Transit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Staff</h4>
+        <ul>
+          <li><a href="apply.html">Job Application</a></li>
+          <li><a href="login.html">Employee Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> CAT Corporation. No rights reserved.</span>
+      <span>Not a real company. Pure fiction &mdash; any resemblance to real life is coincidental.</span>
+    </div>
+  </div>
+</footer>
 
-    <header class="page-header">
-        <div class="header-box">Companies</div>
-    </header>
-
-    <main class="subsidiary-container">
-        <p class="intro-text">CAT manages smaller, but equally important subsidiaries.</p>
-
-        <div class="company-grid">
-            <div class="company-card">
-                <div class="logo-wrapper">
-                    <img src="images/LOGO2.png" alt="C.O.R.E Logo">
-                </div>
-                <h3>C.O.R.E</h3>
-                <p>C.O.R.E is a commuter railway connecting all of Cloudville together.</p>
-                <a href="https://corerail.dpdns.org/index" class="btn-sub">C.O.R.E. Official Webpage</a>
-            </div>
-
-            <div class="company-card">
-                <div class="logo-wrapper">
-                    <img src="images/ganz-logo.png" alt="Ganz Steelworks Logo">
-                </div>
-                <h3>Ganz Steelworks</h3>
-                <p>Ganz is a military contractor that makes special experimental military devices.</p>
-            </div>
-
-            <div class="company-card">
-                <div class="logo-wrapper">
-                    <img src="images/halberd-logo.png" alt="Halberd & Hems Logo">
-                </div>
-                <h3>Halberd & Hems</h3>
-                <p>Specialized in advanced security systems and surveillance technology.</p>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 CAT Corporation. No Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-    </script>
-
+<script src="main.js"></script>
 </body>
 </html>
