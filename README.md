@@ -7,7 +7,7 @@ Static website for the (fictional) CAT Corporation, deployed on Vercel (`vercel.
 - `style.css` — the single stylesheet for every page, including the login and dashboard.
   Layout and type follow the C.O.R.E. site (corerail.dpdns.org); colours come from `V1.png`:
   `#060606` black, `#8B0101` red, `#D3AF37` gold, `#0B7189` teal. All tokens are in `:root`.
-- `main.js` — shared nav behaviour (mobile menu, products dropdown, footer year).
+- `main.js` — shared nav behaviour (mobile menu, footer year).
 - `supabase-config.js` — the one Supabase client, imported by `apply.html`, `login.html` and `dashboard.html`.
 - `images/` — `*.jpg` vehicle/hero/office images are web-sized copies of the original PNGs
   (the hero PNGs are 20–24 MB each and are no longer referenced; they can be deleted or kept as masters).

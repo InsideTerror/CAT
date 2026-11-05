@@ -1,3 +1,9 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/sedans", "destination": "https://corerail.dpdns.org/sedans", "permanent": true },
+    { "source": "/pickups", "destination": "https://corerail.dpdns.org/pickups", "permanent": true },
+    { "source": "/trucks", "destination": "https://corerail.dpdns.org/trucks", "permanent": true },
+    { "source": "/buses", "destination": "https://corerail.dpdns.org/buses", "permanent": true }
+  ]
 }
