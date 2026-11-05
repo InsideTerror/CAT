@@ -248,7 +248,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------------- STATS STRIP ---------------- */
 .stats{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(2, 1fr);
   border-bottom:1px solid var(--hairline);
 }
 .stat{
@@ -269,11 +269,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--steel);
-}
-@media (max-width:760px){
-  .stats{ grid-template-columns:repeat(2,1fr); }
-  .stat{ border-bottom:1px solid var(--hairline); }
-  .stat:nth-child(2n){ border-right:none; }
 }
 
 /* ---------------- GRID & CARDS ---------------- */
